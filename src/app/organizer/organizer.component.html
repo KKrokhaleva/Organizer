@@ -1,23 +1,38 @@
-<section>
+<section xmlns="http://www.w3.org/1999/html">
   <header>
-    Organizer: <strong>gggg</strong>
+    Organizer: <strong>{{dateService.date |async| moment:'DD.MM.YYYY'}}</strong>
+    <hr>
   </header>
-  <hr>
 
   <main>
     <ul>
+      <li class="task">
+         <span>
+           <strong>1</strong>
+           ffff
+         </span>
 
+         <button class="btn btn-primary">
+           Remove
+         </button>
+      </li>
     </ul>
   </main>
 
   <footer>
-    <form >
-      <input type="text">
+    <form (ngSubmit)="submit()" [formGroup]="form">
+      <input
+        type="text"
+        formControlName="tittle"
+      >
 
       <button
         type="submit"
         class="btn btn-primary btn-block"
-      >Add</button>
+        [disabled]="form.invalid"
+      >Add
+      </button>
+
     </form>
   </footer>
 </section>
